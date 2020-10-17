@@ -1,0 +1,21 @@
+{
+  "name": "quantumsimulatorweb",
+  "version": "1.0.0",
+  "description": "Web Interface for simple quantum circuits calculating",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "quantum",
+    "react",
+    "express"
+  ],
+  "author": "Ilya Zaytsev",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9"
+  }
+}
