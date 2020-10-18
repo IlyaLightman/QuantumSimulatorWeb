@@ -18,7 +18,8 @@ if (process.env.NODE_ENV === 'production') {
 	})
 }
 
-const PORT = config.get('PORT');
+const HTTP_PORT = config.get('HTTP_PORT');
+const HTTPS_PORT = config.get('HTTPS_PORT');
 
 async function start() {
 	try {
@@ -28,8 +29,8 @@ async function start() {
 			useCreateIndex: true
 		})
 
-		http.createServer(app).listen(PORT, () => {
-			console.log('[HTTP] App has been started on port 80')
+		http.createServer(app).listen(HTTP_PORT, () => {
+			console.log(`[HTTP] App has been started on port ${HTTP_PORT}`)
 		})
 
 		// https server
