@@ -13,9 +13,15 @@ const InstructionButton = props => {
 				className='InstructionButton'
 				onClick={() => {}}
 			>
-				<div className='LeftRectangle'/>
-				<h3 className='InstructionTitle'>SET</h3>
-				<div className='Parameters'>Q R</div>
+				<div className='LeftRectangle' style={{
+					backgroundColor: props.color
+				}}/>
+				<h3 className='InstructionTitle'>{
+					props.instruction
+				}</h3>
+				<div className='Parameters'>{
+					props.parameters
+				}</div>
 				<div className='ShadowRectangle'/>
 			</div>
 		</React.Fragment>
