@@ -11,7 +11,7 @@ const InstructionButton = props => {
 		<React.Fragment>
 			<div
 				className='InstructionButton'
-				onClick={() => {}}
+				onClick={() => props.onClick()}
 			>
 				<div className='LeftRectangle' style={{
 					backgroundColor: props.color

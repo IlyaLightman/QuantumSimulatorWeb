@@ -1,4 +1,44 @@
 .QuantumSimulatorPage {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+
+  .ConstructorContainer {
+    display: flex;
+    flex-direction: column;
+
+    .ControlPanel {
+      display: flex;
+      padding: 40px;
+      height: 40px;
+      justify-content: center;
+
+      .Information {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 500px;
+        margin-left: 50px;
+        margin-right: 100px;
+        color: #A0A0A0;
+        font-size: 34px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 550;
+      }
+
+      .Buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+        margin-left: 200px;
+      }
+    }
+
+    .Constructor {
+
+    }
+  }
 
   .LeftContainer {
     display: flex;

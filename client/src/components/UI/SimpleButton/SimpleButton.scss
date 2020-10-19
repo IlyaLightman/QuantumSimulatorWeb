@@ -1,0 +1,28 @@
+.SimpleButton {
+  display: flex;
+  height: 48px;
+  width: 116px;
+
+  background-color: #DCDCDC;
+  border-radius: 8px;
+
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: #484848;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 550;
+  }
+
+  &:hover {
+    cursor: pointer;
+    // background-color: #BBBBBB;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+
+    p {
+      color: black;
+    }
+  }
+}
