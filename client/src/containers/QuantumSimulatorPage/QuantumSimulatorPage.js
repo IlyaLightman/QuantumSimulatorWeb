@@ -3,6 +3,7 @@ import './QuantumSimulatorPage.scss'
 
 import InstructionButton from '../../components/InstructionButton/InstructionButton';
 import SimpleButton from '../../components/UI/SimpleButton/SimpleButton';
+import Instruction from '../../components/Instruction/Instruction';
 
 const QuantumSimulatorPage = () => {
 	const [state, setState] = useState({
@@ -93,7 +94,8 @@ const QuantumSimulatorPage = () => {
 
 				</div>
 				<div className='Constructor'>
-
+					<Instruction />
+					<Instruction />
 				</div>
 			</div>
 		</div>

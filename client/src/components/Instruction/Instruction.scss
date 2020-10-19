@@ -1,0 +1,41 @@
+.Instruction {
+  display: flex;
+  margin: 40px;
+
+  height: 80px;
+  width: 320px;
+
+  background-color: #DCDCDC;
+
+  .InstructionTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 240px;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 48px;
+    color: #AC5967;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+
+  .Properties {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Property {
+      background-color: #F3F3F3;
+      padding: 15px 15px;
+      margin: 10px;
+
+      p {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 550;
+        color: #6C6C6C;
+      }
+    }
+  }
+}
