@@ -15,7 +15,20 @@ const QuantumSimulatorPage = () => {
 		setInstructions([...instructions, ({
 			inst: instruction, params: prms
 		})])
-		console.log(instructions)
+	}
+
+	const instructionGenerator = () => {
+		return instructions.map((instruction, index) => {
+
+			return <Instruction
+				inst = {instruction.inst}
+				params = {(instruction).params}
+			/>
+		})
+	}
+
+	const parametersEditor = () => {
+
 	}
 
 	return (
@@ -94,8 +107,14 @@ const QuantumSimulatorPage = () => {
 
 				</div>
 				<div className='Constructor'>
-					<Instruction />
-					<Instruction />
+					<Instruction
+						inst = 'SET'
+						params = {['Q1', 'Zero']}
+					/>
+					<Instruction
+						inst = 'H'
+						params = {['Q1']}
+					/>
 				</div>
 			</div>
 		</div>

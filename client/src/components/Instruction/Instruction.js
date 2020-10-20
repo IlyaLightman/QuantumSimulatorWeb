@@ -2,19 +2,21 @@ import React from 'react';
 import './Instruction.scss'
 
 const Instruction = props => {
+	const propertiesGenerator = () => {
+		return props.params.map(prm => {
+			return <div className='Property'>
+				<p>{prm}</p>
+			</div>
+		})
+	}
 
 	return (
 		<div className='Instruction'>
 			<div className='InstructionTitle'>
-				SET
+				{props.inst}
 			</div>
 			<div className='Properties'>
-				<div className='Property'>
-					<p>Q1</p>
-				</div>
-				<div className='Property'>
-					<p>Zero</p>
-				</div>
+				{propertiesGenerator()}
 			</div>
 		</div>
 	)

@@ -53,10 +53,12 @@
 
   &:hover {
     cursor: pointer;
-    transition: 1s;
+    transition: 0.3s;
+    transform: translate(0, 2px);
 
     .ShadowRectangle {
-      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.20);
+      // box-shadow: 0 2px 16px 0 rgba(0,0,0,0.20);
+      box-shadow: none;
     }
   }
 }
