@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './QuantumSimulatorPage.scss'
 
 import InstructionButton from '../../components/InstructionButton/InstructionButton';
@@ -9,7 +9,8 @@ const QuantumSimulatorPage = () => {
 	const [state, setState] = useState({
 		qubits: 3, repeats: 1000
 	})
-	const [instructions, setInstructions] = useState([{ inst: 'SET', params: ['Q1', 'One'] }, { inst: 'H', params: ['Q2']}])
+	const [instructions, setInstructions] =
+		useState([{ inst: 'SET', params: ['Q1', 'One'] }, { inst: 'H', params: ['Q2']}])
 
 	const addInstruction = (instruction, prms) => {
 		setInstructions([...instructions, ({
@@ -24,15 +25,19 @@ const QuantumSimulatorPage = () => {
 				params = {(instruction).params}
 				parametersEditor = {parametersEditor}
 				index = {index}
+				qubits = {state.qubits}
+				key = {`key_${index}`}
 			/>
 		))
 	}
 
 	const parametersEditor = (instructionIndex, parameterIndex, newParameter) => {
+		console.log(instructionIndex, parameterIndex, newParameter)
 		const insts = instructions
 		insts[instructionIndex].params[parameterIndex] = newParameter
 
 		setInstructions(insts)
+		console.log(instructions)
 	}
 
 	return (
@@ -43,7 +48,7 @@ const QuantumSimulatorPage = () => {
 					parameters='Q R'
 					color='#AC5967'
 					onClick={() => {
-						addInstruction('SET', ['q1', 'Zero'])
+						addInstruction('SET', ['Q1', 'Zero'])
 					}}
 				/>
 				<InstructionButton
@@ -51,7 +56,7 @@ const QuantumSimulatorPage = () => {
 					parameters='Q R'
 					color='#486BA0'
 					onClick={() => {
-						addInstruction('IFM', ['q1', 'Zero'])
+						addInstruction('IFM', ['Q1', 'Zero'])
 					}}
 				/>
 				<InstructionButton
@@ -59,7 +64,7 @@ const QuantumSimulatorPage = () => {
 					parameters='Q Q'
 					color='#C66868'
 					onClick={() => {
-						addInstruction('CNOT', ['q1', 'q2'])
+						addInstruction('CNOT', ['Q1', 'Q2'])
 					}}
 				/>
 				<InstructionButton
@@ -67,7 +72,7 @@ const QuantumSimulatorPage = () => {
 					parameters='Q'
 					color='#A458B7'
 					onClick={() => {
-						addInstruction('H', ['q1'])
+						addInstruction('H', ['Q1'])
 					}}
 				/>
 				<InstructionButton
@@ -75,7 +80,7 @@ const QuantumSimulatorPage = () => {
 					parameters='Q'
 					color='#3F9B53'
 					onClick={() => {
-						addInstruction('X', ['q1'])
+						addInstruction('X', ['Q1'])
 					}}
 				/>
 				<InstructionButton
@@ -83,7 +88,7 @@ const QuantumSimulatorPage = () => {
 					parameters='Q'
 					color='#CA9D00'
 					onClick={() => {
-						addInstruction('Y', ['q1'])
+						addInstruction('Y', ['Q1'])
 					}}
 				/>
 				<InstructionButton
@@ -91,7 +96,7 @@ const QuantumSimulatorPage = () => {
 					parameters='Q'
 					color='#619BD1'
 					onClick={() => {
-						addInstruction('Z', ['q1'])
+						addInstruction('Z', ['Q1'])
 					}}
 				/>
 				<div className='LeftContainerUnder'/>
