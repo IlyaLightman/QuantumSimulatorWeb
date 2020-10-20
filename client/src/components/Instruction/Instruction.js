@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Instruction.scss'
 
 const Instruction = props => {
@@ -19,8 +19,8 @@ const Instruction = props => {
 	const propertiesGenerator = () => {
 		return props.params.map((prm, prmIndex) => {
 			return <div className='Property'
-				onClick={() => props.parametersEditor(props.index, prmIndex, parameterUp(prm))}
-				key = {`key_${prmIndex}`}
+						onClick={() => props.parametersEditor(props.index, prmIndex, parameterUp(prm))}
+						key={`key${prmIndex}`}
 			>
 				<p>{prm}</p>
 			</div>
@@ -28,8 +28,14 @@ const Instruction = props => {
 	}
 
 	return (
-		<div className='Instruction'>
-			<div className='InstructionTitle'>
+		<div className='Instruction' style={
+			props.params.length === 1 ? {
+				width: '180px'
+			} : {}
+		}>
+			<div className='InstructionTitle' style={{
+				color: colors[props.inst]
+			}}>
 				{props.inst}
 			</div>
 			<div className='Properties'>
@@ -37,6 +43,16 @@ const Instruction = props => {
 			</div>
 		</div>
 	)
+}
+
+const colors = {
+	'SET': '#AC5967',
+	'IFM': '#486BA0',
+	'CNOT': '#C66868',
+	'H': '#A458B7',
+	'X': '#3F9B53',
+	'Y': '#CA9D00',
+	'Z': '#619BD1',
 }
 
 export default Instruction
