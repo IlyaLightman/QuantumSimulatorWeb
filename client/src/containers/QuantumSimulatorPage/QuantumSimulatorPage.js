@@ -32,12 +32,16 @@ const QuantumSimulatorPage = () => {
 	}
 
 	const parametersEditor = (instructionIndex, parameterIndex, newParameter) => {
-		console.log(instructionIndex, parameterIndex, newParameter)
 		const insts = instructions
 		insts[instructionIndex].params[parameterIndex] = newParameter
 
 		setInstructions(insts)
-		console.log(instructions)
+
+		reload()
+	}
+
+	const reload = () => {
+		setState({ ...state })
 	}
 
 	return (
@@ -116,14 +120,6 @@ const QuantumSimulatorPage = () => {
 
 				</div>
 				<div className = 'Constructor'>
-					{/*<Instruction*/}
-					{/*	inst = 'SET'*/}
-					{/*	params = {['Q1', 'Zero']}*/}
-					{/*/>*/}
-					{/*<Instruction*/}
-					{/*	inst = 'H'*/}
-					{/*	params = {['Q1']}*/}
-					{/*/>*/}
 					{instructionsGenerator()}
 				</div>
 			</div>

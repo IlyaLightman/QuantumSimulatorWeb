@@ -9,7 +9,6 @@ const Instruction = props => {
 		}
 
 		const q = Number(parameter.substr(1, parameter.length - 1))
-		console.log(props.qubits, q + 1)
 		if (1 + q > props.qubits) {
 			return 'Q1'
 		} else {
