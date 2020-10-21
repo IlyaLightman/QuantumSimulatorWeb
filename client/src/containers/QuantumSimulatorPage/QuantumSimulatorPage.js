@@ -10,7 +10,7 @@ const QuantumSimulatorPage = () => {
 		qubits: 3, repeats: 1000
 	})
 	const [instructions, setInstructions] =
-		useState([{ inst: 'SET', params: ['Q1', 'One'] }, { inst: 'H', params: ['Q2']}])
+		useState([{ inst: 'SET', params: ['Q1', 'One'] }/*, { inst: 'H', params: ['Q2']}*/])
 
 	const addInstruction = (instruction, prms) => {
 		setInstructions([...instructions, ({
