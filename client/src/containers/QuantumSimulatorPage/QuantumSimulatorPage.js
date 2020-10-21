@@ -19,15 +19,28 @@ const QuantumSimulatorPage = () => {
 	}
 
 	const instructionsGenerator = () => {
-		return instructions.map((instruction, index) => (
-			<Instruction
-				inst = {instruction.inst}
-				params = {(instruction).params}
-				parametersEditor = {parametersEditor}
-				index = {index}
-				qubits = {state.qubits}
-				key = {`key_${index}`}
-			/>
+		const lines = [[]]
+		let line = 0; let elements = 0
+		instructions.forEach((instruction, index) => {
+			if (elements >= 19) {
+				elements = 0
+				lines.push([])
+				line += 1
+			}
+			lines[line].push(<Instruction
+				inst={instruction.inst}
+				params={(instruction).params}
+				parametersEditor={parametersEditor}
+				index={index}
+				qubits={state.qubits}
+				key={`key_${index}`}
+			/>)
+			elements += instruction.params.length === 2 ? 8 : 5
+		})
+		return lines.map((line) => (
+			<div className='InstructionsLine'>
+				{line.map((inst) => inst)}
+			</div>
 		))
 	}
 

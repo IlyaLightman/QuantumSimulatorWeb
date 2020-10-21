@@ -24,6 +24,7 @@
         font-size: 34px;
         font-family: 'Roboto', sans-serif;
         font-weight: 550;
+        user-select: none;
       }
 
       .Buttons {
@@ -36,7 +37,19 @@
     }
 
     .Constructor {
+      margin-left: 40px;
 
+      .InstructionsLine {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+      }
+      //max-width: 75%;
+      //display: grid;
+      //grid-template-columns: repeat(3, 1fr);
+      //grid-template-rows: 1fr;
+      //grid-column-gap: 0;
+      //grid-row-gap: 0;
     }
   }
 
