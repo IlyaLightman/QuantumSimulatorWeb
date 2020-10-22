@@ -22,18 +22,32 @@ router.post('/calc',
 				instructions.push(`${instruction.inst}(${instruction.params.toString()})`)
 			})
 
-			console.log(instructions)
-
-			const qsbody = {
+			const qsbody = JSON.stringify({
 				qubits: req.body.qubits,
 				repeats: req.body.repeats,
 				instructions
-			}
+			})
 
-			const qs_response =
-				await fetch(`${QS_URI}/quantumsimulator`, { method: 'POST', body: qsbody })
+			console.log(qsbody)
 
-			res.status(201).json({ response: qs_response })
+			// https://localhost:5001/quantumsimulator
+			// const qs_response =
+			// 	// await fetch(`${QS_URI}/quantumsimulator`, { method: 'POST', body: qsbody,
+			// 	// 	headers: {['Content-Type']: 'application/json'} })
+			//
+			// 	await fetch(`https://localhost:5001/quantumsimulator`, { method: 'POST', body: qsbody,
+			// 		headers: {['Content-Type']: 'application/json'} })
+
+			await fetch('https://localhost:5001/quantumsimulator', {
+				method: 'post',
+				body:    qsbody,
+				headers: { 'Content-Type': 'application/json' },
+			})
+				.catch(err => res.status(500).json({ err }))
+				.then(res => res.json())
+				.then(j => res.status(201).json({ response: j }));
+
+			res.status(201).json({ response: {} })
 		} catch (err) {
 			res.status(500).json({ err })
 		}
