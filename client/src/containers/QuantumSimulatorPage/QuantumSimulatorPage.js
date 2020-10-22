@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import useHttp from '../../hooks/http.hook'
 import './QuantumSimulatorPage.scss'
 
 import InstructionButton from '../../components/InstructionButton/InstructionButton';
@@ -12,10 +13,20 @@ const QuantumSimulatorPage = () => {
 	const [instructions, setInstructions] =
 		useState([{ inst: 'SET', params: ['Q1', 'One'] }/*, { inst: 'H', params: ['Q2']}*/])
 
+	const { request, loading, error, clearError } = useHttp()
+
 	const addInstruction = (instruction, prms) => {
 		setInstructions([...instructions, ({
 			inst: instruction, params: prms
 		})])
+	}
+
+	const playHandler = async () => {
+		const data = await request('/api/calculate', 'POST', {
+			qubits: state.qubits,
+			repeats: state.repeats,
+			instructions
+		})
 	}
 
 	const instructionsGenerator = () => {
@@ -128,7 +139,10 @@ const QuantumSimulatorPage = () => {
 					<div className = 'Buttons'>
 						<SimpleButton title='Edit'/>
 						<SimpleButton title='Clear'/>
-						<SimpleButton title='Play'/>
+						<SimpleButton
+							title='Play'
+							onClick={playHandler}
+						/>
 					</div>
 
 				</div>
