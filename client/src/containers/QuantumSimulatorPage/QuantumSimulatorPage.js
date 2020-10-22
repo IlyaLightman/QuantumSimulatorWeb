@@ -28,6 +28,9 @@ const QuantumSimulatorPage = () => {
 			instructions
 		})
 		console.log(data)
+		let bString = `Qubits: ${state.qubits}\nRepeats: ${state.repeats}\n`
+		data.response.forEach((q, index) => bString += `Qubit ${index + 1}: ${q}\n`)
+		alert(bString)
 	}
 
 	const instructionsGenerator = () => {
