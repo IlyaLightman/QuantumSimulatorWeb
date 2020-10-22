@@ -28,17 +28,7 @@ router.post('/calc',
 				instructions
 			})
 
-			console.log(qsbody)
-
-			// https://localhost:5001/quantumsimulator
-			// const qs_response =
-			// 	// await fetch(`${QS_URI}/quantumsimulator`, { method: 'POST', body: qsbody,
-			// 	// 	headers: {['Content-Type']: 'application/json'} })
-			//
-			// 	await fetch(`https://localhost:5001/quantumsimulator`, { method: 'POST', body: qsbody,
-			// 		headers: {['Content-Type']: 'application/json'} })
-
-			await fetch('https://localhost:5001/quantumsimulator', {
+			await fetch(`${QS_URI}/quantumsimulator`, {
 				method: 'post',
 				body:    qsbody,
 				headers: { 'Content-Type': 'application/json' },

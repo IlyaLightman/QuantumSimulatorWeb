@@ -142,7 +142,10 @@ const QuantumSimulatorPage = () => {
 
 					<div className = 'Buttons'>
 						<SimpleButton title='Edit'/>
-						<SimpleButton title='Clear'/>
+						<SimpleButton
+							title='Clear'
+							onClick={() => setInstructions([])}
+						/>
 						<SimpleButton
 							title='Play'
 							onClick={playHandler}
@@ -156,12 +159,6 @@ const QuantumSimulatorPage = () => {
 			</div>
 		</div>
 	)
-}
-
-const instructionInfo = {
-	'SET': {
-		color: 'red', parameters: 'Q R'
-	}
 }
 
 export default QuantumSimulatorPage
