@@ -8,7 +8,10 @@ const fs = require('fs')
 
 const app = express()
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0'
 app.use(express.json({ extended: true }))
+
+app.use('/api/qs', require('./routes/qs.routes'))
 
 if (process.env.NODE_ENV === 'production') {
 	app.use('/', express.static(path.join(__dirname, 'client', 'build')))

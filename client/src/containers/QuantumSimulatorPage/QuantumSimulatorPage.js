@@ -22,11 +22,12 @@ const QuantumSimulatorPage = () => {
 	}
 
 	const playHandler = async () => {
-		const data = await request('/api/calculate', 'POST', {
+		const data = await request('/api/qs/calc', 'POST', {
 			qubits: state.qubits,
 			repeats: state.repeats,
 			instructions
 		})
+		console.log(data)
 	}
 
 	const instructionsGenerator = () => {
@@ -49,7 +50,10 @@ const QuantumSimulatorPage = () => {
 			elements += instruction.params.length === 2 ? 8 : 5
 		})
 		return lines.map((line) => (
-			<div className='InstructionsLine'>
+			<div
+				className='InstructionsLine'
+				key={line.toString()}
+			>
 				{line.map((inst) => inst)}
 			</div>
 		))
